@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CornerTextView">
+        <!--边框的宽度-->
+        <attr name="borderWidth" format="dimension" />
+        <!--边框的颜色-->
+        <attr name="borderWidthColor" format="color" />
+        <!--圆角的大小-->
+        <attr name="cornersize" format="dimension" />
+    </declare-styleable>
+</resources>

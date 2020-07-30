@@ -1,0 +1,13 @@
+
+<resources>
+    <declare-styleable name="CreditsRollView">
+        <!--滑动位置-->
+        <attr name="scrollPosition" format="float" />
+        <!--//角度-->
+        <attr name="angle" format="float" />
+        <!--结束时间距-->
+        <attr name="endScrollMultiplier" format="float" />
+        <!--与文本的距离-->
+        <attr name="distanceFromText" format="float" />
+    </declare-styleable>
+</resources>

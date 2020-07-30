@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+
+    <com.mo.libsx.view.viewpage.KViewPage
+        android:id="@+id/vp_vp"
+        android:layout_width="match_parent"
+        android:layout_height="100dp" />
+
+    <com.mo.libsx.view.recycle_view.KRecycleView
+        android:id="@+id/krv_vp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>

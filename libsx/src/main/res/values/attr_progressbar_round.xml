@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="RoundProgressBar1">
+        <!--最大进度-->
+        <attr name="max" format="integer" />
+        <!--进度从圆环的哪个角度开始走-->
+        <attr name="startAngle" format="integer" />
+        <!--圆环的颜色-->
+        <attr name="roundColor" format="color" />
+        <!--圆环进度的颜色-->
+        <attr name="roundProgressColor" format="color" />
+        <!--圆环宽度-->
+        <attr name="roundWidth" format="dimension" />
+        <!--圆环内部的填充色-->
+        <attr name="backColor" format="color" />
+        <!--中心文字的颜色-->
+        <attr name="textColor" format="color" />
+        <!--中心文字的大小-->
+        <attr name="textSize" format="dimension" />
+        <!--中心文字是否显示-->
+        <attr name="textIsDisplayable" format="boolean" />
+        <!--进度的风格，实心或者空心-->
+        <attr name="style">
+            <enum name="STROKE" value="0" />
+            <enum name="FILL" value="1" />
+        </attr>
+    </declare-styleable>
+</resources>

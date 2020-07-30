@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.mo.kutilsxdemo">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:name="com.mo.libsx.base.BaseApplication"
+        android:theme="@style/AppTheme">
+
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activitys.widget.WidgetsActivity" />
+        <activity android:name=".activitys.widget.text_view.TextViewsActivity" />
+        <activity android:name=".activitys.widget.text_view.SlantedTextViewActivity" />
+        <activity android:name=".activitys.widget.text_view.CornerTextViewActivity" />
+        <activity android:name=".activitys.widget.text_view.ExpandableTextViewActivity" />
+        <activity android:name=".activitys.widget.text_view.BadgeTextViewActivity" />
+        <activity android:name=".activitys.animation_effect.AnimationEffectsActivity" />
+        <activity android:name=".activitys.animation_effect.bubble.BubblesActivity" />
+        <activity android:name=".activitys.animation_effect.bubble.CircleBubbleActivity" />
+        <activity android:name=".activitys.animation_effect.bubble.IconBubbleActivity" />
+        <activity android:name=".activitys.widget.text_view.CreditsRollTextViewActivity" />
+        <activity android:name=".activitys.animation_effect.floating.FloatingActivity" />
+        <activity android:name=".activitys.animation_effect.snow.SnowActivity" />
+        <activity android:name=".activitys.function.TakePhotoActivity" />
+        <activity android:name=".activitys.function.FunctionsActivity" />
+        <activity android:name=".activitys.widget.edit_view.EditsViewActivity" />
+        <activity android:name=".activitys.widget.image_view.ImagesViewActivity" />
+        <activity android:name=".activitys.widget.progress_bar.ProgressBarsActivity" />
+        <activity android:name=".activitys.widget.list.pull_to_refresh.PullToRefreshActivity" />
+        <activity android:name=".activitys.widget.list.ListsActivity" />
+        <activity android:name=".activitys.widget.list.RecycleViewsActivity" />
+        <activity android:name=".activitys.widget.list.PullToRefreshActivity" />
+        <activity android:name=".activitys.widget.list.AutoLocateHorizontalViewActivity" />
+        <activity android:name=".activitys.function.SignatureViewActivity" />
+        <activity android:name=".activitys.widget.view_switcher.ViewSwitcherActivity" />
+        <activity android:name=".activitys.widget.viewpage.ViewPagesActivity" />
+        <activity android:name=".activitys.widget.viewpage.KViewPageActivity" />
+    </application>
+
+</manifest>

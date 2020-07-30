@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- 进度条 -->
+    <declare-styleable name="ProgressView">
+        <attr name="progressIndeterminate" format="boolean" />
+        <attr name="barColor" format="color" />
+        <attr name="rimColor" format="color" />
+        <attr name="rimWidth" format="dimension" />
+        <attr name="spinSpeed" format="float" />
+        <attr name="barSpinCycleTime" format="integer" />
+        <attr name="circleRadius" format="dimension" />
+        <attr name="fillRadius" format="boolean" />
+        <attr name="barWidth" format="dimension" />
+        <attr name="linearProgress" format="boolean" />
+    </declare-styleable>
+    <declare-styleable name="BubbleIconLayout">
+
+        <attr name="bubble_pic_one"
+
+            format="reference" />
+
+        <attr name="bubble_pic_two"
+
+            format="reference" />
+
+        <attr name="bubble_pic_three"
+
+            format="reference" />
+
+        <attr name="bubble_pic_four"
+
+            format="reference" />
+
+    </declare-styleable>
+    <!--进度条-->
+    <declare-styleable name="Loading">
+        <attr name="outer_width" format="dimension" />
+        <attr name="outer_color" format="color" />
+        <attr name="inner_width" format="dimension" />
+        <attr name="inner_color" format="color" />
+        <attr name="inner_rotating_speed" format="integer" />
+        <attr name="mode">
+            <enum name="arc" value="1" />
+            <enum name="circle" value="2" />
+            <enum name="custom" value="3" />
+        </attr>
+        <!-- mode=circle时有效 -->
+        <attr name="inner_circle_speed" format="integer" />
+        <!-- mode=custom时有效 -->
+        <attr name="inner_custom_degree" format="integer" />
+    </declare-styleable>
+</resources>

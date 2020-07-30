@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+
+    <com.mo.libsx.view.text_view.CreditsRollTextView
+        android:id="@+id/cr_fast_look"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="@string/demotext"
+        android:textColor="#ffffc92a"
+        android:textSize="30sp"
+        app:angle="35"
+        app:distanceFromText="200"
+        app:endScrollMultiplier="4.5" />
+
+    <SeekBar
+        android:id="@+id/sb_fast_look"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:max="1000"
+        android:visibility="gone" />
+</LinearLayout>
