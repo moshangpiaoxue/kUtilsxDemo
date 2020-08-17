@@ -27,7 +27,7 @@ public class FloatingActivity extends BaseActivity implements TitleBarAction {
     protected void initView() {
         setTitle("红旗飘");
 //        BitMapMeshView bmmv_ = findViewById(R.id.bmmv_);
-//        bmmv_.setImgSize(ResUtil.getBitmap(R.mipmap.aa), ScreenUtil.getScreenWidth(), 200);
+//        bmmv_.setImgSize(ResUtil.getBitmap(R.mipmap.TT), ScreenUtil.getScreenWidth(), 200);
 //        bmmv_.invalidate();
     }
 

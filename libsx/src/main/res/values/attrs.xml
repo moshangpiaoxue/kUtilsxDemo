@@ -50,4 +50,9 @@
         <!-- mode=custom时有效 -->
         <attr name="inner_custom_degree" format="integer" />
     </declare-styleable>
+    <declare-styleable name="TagFlowLayout"><attr format="integer" name="max_select"/><attr name="tag_gravity">
+        <enum name="left" value="-1"/>
+        <enum name="center" value="0"/>
+        <enum name="right" value="1"/>
+    </attr></declare-styleable>
 </resources>

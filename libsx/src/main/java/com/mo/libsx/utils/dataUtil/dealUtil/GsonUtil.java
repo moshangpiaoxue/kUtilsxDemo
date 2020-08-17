@@ -61,14 +61,14 @@ package com.mo.libsx.utils.dataUtil.dealUtil;//package mo.klib.utils.dataUtil.de
 //    }
 //
 //    public static <T> T GsonToBean(String gsonString) {
-//        T aa = null;
+//        T TT = null;
 //        Type localType = new TypeToken<T>() {
 //        }.getType();
 //        if (gson != null) {
-//            aa = gson.fromJson(gsonString, localType);
+//            TT = gson.fromJson(gsonString, localType);
 //        }
 //
-//        return aa;
+//        return TT;
 //    }
 //
 //    /**

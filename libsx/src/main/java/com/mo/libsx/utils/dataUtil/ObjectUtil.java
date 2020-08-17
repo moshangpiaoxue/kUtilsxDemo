@@ -127,7 +127,7 @@ public class ObjectUtil {
      * <pre>
      * nullStrToEmpty(null) = &quot;&quot;;
      * nullStrToEmpty(&quot;&quot;) = &quot;&quot;;
-     * nullStrToEmpty(&quot;aa&quot;) = &quot;aa&quot;;
+     * nullStrToEmpty(&quot;TT&quot;) = &quot;TT&quot;;
      * </pre>
      *
      * @param str

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <com.mo.libsx.view.recycle_view.KRecycleView
+        android:id="@+id/gridview_hot_city"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:cacheColorHint="@android:color/transparent"
+        android:horizontalSpacing="12dp"
+        android:layout_marginRight="36dp"
+        android:listSelector="@android:color/transparent"
+        android:numColumns="4"
+        android:paddingLeft="16dp"
+        android:paddingTop="8dp"
+        android:overScrollMode="never"
+        android:paddingBottom="8dp"
+        android:scrollbars="none"
+        android:verticalSpacing="12dp" />
+</LinearLayout>

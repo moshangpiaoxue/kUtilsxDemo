@@ -31,13 +31,11 @@ public interface TitleBarAction {
                 super.leftClick(v);
                 onTitleViewLeftClick(v);
             }
-
             @Override
             public void midleClick(View v) {
                 super.midleClick(v);
                 onTitleViewMidleClick(v);
             }
-
             @Override
             public void rightClick(View v) {
                 super.rightClick(v);

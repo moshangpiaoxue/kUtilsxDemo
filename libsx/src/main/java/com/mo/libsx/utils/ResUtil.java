@@ -64,7 +64,9 @@ public class ResUtil {
             return (int) TypedValue.complexToFloat(value.data);
         }
     }
-
+    public static int getDimensionPixelOffset(@DimenRes int resId) {
+        return k.app().getResources().getDimensionPixelOffset(resId);
+    }
     /**
      * 获取颜色值
      *

@@ -20,7 +20,7 @@ import android.os.Process;
 import android.util.Log;
 
 
-import com.mo.libsx.utils.dataUtil.StringUtil;
+import com.mo.libsx.utils.dataUtil.stringUtils.StringUtil;
 import com.mo.libsx.utils.tips_utils.LogUtil;
 
 import java.util.ArrayList;

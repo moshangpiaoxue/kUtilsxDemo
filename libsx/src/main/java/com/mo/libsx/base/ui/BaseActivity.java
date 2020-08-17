@@ -1,51 +1,27 @@
 package com.mo.libsx.base.ui;
 
 import android.app.Activity;
-import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
-import android.database.Cursor;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.inputmethod.InputMethodManager;
 
-import androidx.annotation.IntRange;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
-import androidx.fragment.app.FragmentTransaction;
 
 import com.gyf.immersionbar.ImmersionBar;
 import com.hjq.toast.ToastUtils;
 import com.mo.libsx.action.ActivityAction;
-import com.mo.libsx.action.ActivityBean;
 import com.mo.libsx.action.BundleAction;
 import com.mo.libsx.action.ClickAction;
 import com.mo.libsx.action.HandlerAction;
-import com.mo.libsx.action.MediaAction;
 import com.mo.libsx.action.SwipeAction;
 import com.mo.libsx.action.ToastAction;
-import com.mo.libsx.modle.constants.ConstansePermissionGroup;
-import com.mo.libsx.modle.constants.KConstans;
-import com.mo.libsx.utils.dataUtil.KUriUtil;
-import com.mo.libsx.utils.image.BitmapUtil;
-import com.mo.libsx.utils.image.CompressScaled;
-import com.mo.libsx.utils.systemUtils.CameraUtil;
-import com.mo.libsx.utils.systemUtils.storageUtil.SDCardUtil;
-import com.permissionx.guolindev.PermissionX;
-import com.permissionx.guolindev.callback.RequestCallback;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.util.List;
 import java.util.Random;
 
 /**

@@ -1,5 +1,7 @@
 package com.mo.libsx.utils.dataUtil;
 
+import com.mo.libsx.utils.dataUtil.stringUtils.StringUtil;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 

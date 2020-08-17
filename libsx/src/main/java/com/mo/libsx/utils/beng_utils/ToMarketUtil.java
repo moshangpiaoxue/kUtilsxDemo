@@ -11,7 +11,7 @@ import android.net.Uri;
 import com.hjq.toast.ToastUtils;
 import com.mo.libsx.k;
 import com.mo.libsx.utils.app_utils.AppInfoUtil;
-import com.mo.libsx.utils.dataUtil.StringUtil;
+import com.mo.libsx.utils.dataUtil.stringUtils.StringUtil;
 import com.mo.libsx.utils.tips_utils.LogUtil;
 
 import java.util.ArrayList;

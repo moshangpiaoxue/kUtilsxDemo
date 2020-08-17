@@ -13,18 +13,18 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager;
  */
 public abstract class OnScrollingListener extends RecyclerView.OnScrollListener {
     public static enum LAYOUT_MANAGER_TYPE {
-        /**
-         * 线性
-         */
+
+        /** 线性 */
         LINEAR,
-        /**
-         * 表格
-         */
+
+        /** 表格 */
         GRID,
-        /**
-         * 瀑布流
-         */
-        STAGGERED_GRID
+
+        /** 瀑布流 */
+        STAGGERED_GRID,
+
+        /** 自定义 */
+        CUSTOM
     }
 
     /**
@@ -76,9 +76,8 @@ public abstract class OnScrollingListener extends RecyclerView.OnScrollListener 
                 layoutManagerType = LAYOUT_MANAGER_TYPE.GRID;
             } else if (layoutManager instanceof StaggeredGridLayoutManager) {
                 layoutManagerType = LAYOUT_MANAGER_TYPE.STAGGERED_GRID;
-            } else {
-                throw new RuntimeException(
-                        "没找到布局管理器！");
+            }else {
+                layoutManagerType = LAYOUT_MANAGER_TYPE.CUSTOM;
             }
         }
 

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_base_list_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:clipToPadding="true"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <!--<RelativeLayout-->
+        <!--android:id="@+id/fl_base_list_main"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content">-->
+
+        <com.mo.libsx.view.PullToRefresh.KPullToRefreshLayout
+            android:id="@+id/kptrl_base_list_layout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="#f6f6f6">
+
+            <com.mo.libsx.view.recycle_view.KRecycleView
+                android:id="@+id/krv_base_list_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </com.mo.libsx.view.PullToRefresh.KPullToRefreshLayout>
+    <!--</RelativeLayout>-->
+</LinearLayout>

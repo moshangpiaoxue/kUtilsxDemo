@@ -20,7 +20,7 @@ import com.mo.libsx.view.popupWindow.KPopupWindow;
  * data：2017/11/16 0016
  * 功能：pop模型
  */
-
+@Deprecated
 public abstract class BasePopModle {
     /**
      *动画出现样式集合 0=从上到下 1=从下到上

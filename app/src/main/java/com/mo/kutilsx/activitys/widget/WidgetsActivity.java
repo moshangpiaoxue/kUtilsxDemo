@@ -2,6 +2,8 @@ package com.mo.kutilsx.activitys.widget;
 
 import com.mo.kutilsx.R;
 import com.mo.kutilsx.action.ListAction;
+import com.mo.kutilsx.activitys.widget.data_picker.DataPickerActivity;
+import com.mo.kutilsx.activitys.widget.popwindow.PopWindowsActivity;
 import com.mo.libsx.action.TitleBarAction;
 import com.mo.kutilsx.activitys.widget.list.ListsActivity;
 import com.mo.kutilsx.activitys.widget.text_view.TextViewsActivity;
@@ -58,6 +60,8 @@ public class WidgetsActivity extends BaseActivity implements TitleBarAction, Lis
         list.add(new MainBean("列表相关", ListsActivity.class));
         list.add(new MainBean("ViewSwitcher相关", ViewSwitcherActivity.class));
         list.add(new MainBean("ViewPage相关", ViewPagesActivity.class));
+        list.add(new MainBean("PopWindow相关", PopWindowsActivity.class));
+        list.add(new MainBean("日期选择相关", DataPickerActivity.class));
         return list;
     }
 

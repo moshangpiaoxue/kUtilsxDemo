@@ -17,7 +17,7 @@ import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
 
 import static com.mo.libsx.utils.dataUtil.ListUtil.bytes2HexString;
-import static com.mo.libsx.utils.dataUtil.StringUtil.hexString2Bytes;
+import static com.mo.libsx.utils.dataUtil.stringUtils.StringUtil.hexString2Bytes;
 
 
 /**

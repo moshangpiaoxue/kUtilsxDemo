@@ -4,7 +4,7 @@ import android.graphics.Paint;
 import android.widget.TextView;
 
 import com.mo.libsx.k;
-import com.mo.libsx.utils.dataUtil.StringUtil;
+import com.mo.libsx.utils.dataUtil.stringUtils.StringUtil;
 
 
 /**

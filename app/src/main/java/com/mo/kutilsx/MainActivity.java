@@ -1,6 +1,7 @@
 package com.mo.kutilsx;
 
 import com.mo.kutilsx.action.ListAction;
+import com.mo.libsx.action.LoadTypeAction;
 import com.mo.libsx.action.TitleBarAction;
 import com.mo.kutilsx.activitys.animation_effect.AnimationEffectsActivity;
 import com.mo.kutilsx.activitys.function.FunctionsActivity;
@@ -9,12 +10,13 @@ import com.mo.kutilsx.bean.MainBean;
 import com.mo.kutilsx.modle.AdapterModle;
 import com.mo.libsx.base.adapter.KRecyclerAdapter;
 import com.mo.libsx.base.ui.BaseActivity;
+import com.mo.libsx.utils.viewUtil.ViewUtil;
 import com.mo.libsx.view.recycle_view.KRecycleView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends BaseActivity implements ListAction<MainBean> , TitleBarAction {
+public class MainActivity extends BaseActivity implements ListAction<MainBean> ,  LoadTypeAction {
 
     @Override
     protected boolean isStatusBarEnabled() {
@@ -31,6 +33,14 @@ public class MainActivity extends BaseActivity implements ListAction<MainBean> ,
         setTitle("主页");
         getRecycleView().setLayoutGrid(4);
         setAdapter();
+//        getLoadTypeView().setLoadingView(ViewUtil.getView(getActivity(), com.mo.libsx.R.layout.base_error));
+//        getLoadTypeView().showLoading();
+//        getHandler().postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//                loadSuccess();
+//            }
+//        },2000);
     }
 
     @Override
@@ -57,4 +67,5 @@ public class MainActivity extends BaseActivity implements ListAction<MainBean> ,
     public KRecyclerAdapter getWrapRecyclerAdapter() {
         return AdapterModle.getMainAdapter(getActivity(), getList());
     }
+
 }

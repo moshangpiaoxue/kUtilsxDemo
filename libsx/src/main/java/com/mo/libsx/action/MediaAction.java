@@ -18,8 +18,8 @@ import com.hjq.toast.ToastUtils;
 import com.mo.libsx.modle.constants.ConstansePermissionGroup;
 import com.mo.libsx.modle.constants.KConstans;
 import com.mo.libsx.utils.dataUtil.KUriUtil;
+import com.mo.libsx.utils.image.BitmapCompressUtil;
 import com.mo.libsx.utils.image.BitmapUtil;
-import com.mo.libsx.utils.image.CompressScaled;
 import com.mo.libsx.utils.systemUtils.CameraUtil;
 import com.mo.libsx.utils.systemUtils.storageUtil.SDCardUtil;
 import com.permissionx.guolindev.PermissionX;
@@ -98,7 +98,7 @@ public interface MediaAction {
                             }
                         } else {
                             imagePath = CameraUtil.handlerImageChooseResult(data);
-                            setMediaResult(getMediaBean().getPhoneStatus(), CompressScaled.getScaledBitmap(BitmapFactory.decodeFile(imagePath)), imagePath, data);
+                            setMediaResult(getMediaBean().getPhoneStatus(), BitmapCompressUtil.getBitmapScaled(BitmapFactory.decodeFile(imagePath)), imagePath, data);
                         }
                         //                        setMediaResult(phoneStatus, BitmapFactory.decodeFile(imagePath), imagePath, data);
                     }

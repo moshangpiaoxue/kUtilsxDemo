@@ -46,8 +46,12 @@ public class ListsActivity extends BaseActivity implements TitleBarAction, ListA
     public List<MainBean> getList() {
         List<MainBean> list = new ArrayList<>();
         list.add(new MainBean("RecycleView", RecycleViewsActivity.class));
+        list.add(new MainBean("RecycleView2", RecycleViewsActivity2.class));
+        list.add(new MainBean("自动换行RecycleView", RvAutoLineBreakActivity.class));
         list.add(new MainBean("下拉刷新", PullToRefreshActivity.class));
+        list.add(new MainBean("下拉刷新2", PullToRefreshActivity2.class));
         list.add(new MainBean("下拉刷新", AutoLocateHorizontalViewActivity.class));
+        list.add(new MainBean("选择城市", CityPickerActivity2.class));
         return list;
     }
 

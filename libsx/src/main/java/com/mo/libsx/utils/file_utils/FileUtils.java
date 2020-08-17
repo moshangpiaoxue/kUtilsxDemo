@@ -50,96 +50,11 @@ public class FileUtils {
     }
 
 
-    /**
-     * 检查指定文件或文件夹是否可用
-     * <p>判断的标准:</p>
-     * <br>1.如果是外部文件, 判断外部存储是否可用以及是否有外部储存权限, 通过即为可用, 否则为不可用
-     * <br>2.如果是内部文件, 则为可用
-     *
-     * @param file 文件或文件夹对象
-     * @return true 为可用, false 为不可用
-     */
-    private static boolean checkFile(File file) {
-        if (file == null) return false;
-        boolean isStorageFile = file.getAbsolutePath().contains(Environment.getExternalStorageDirectory().getAbsolutePath());
-        return !isStorageFile || isSdAvailable() && checkPermissionAndRequest();
-    }
 
-    private static boolean isSdAvailable() {
-        return Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED);
-    }
 
-    /**
-     * 检查文件是否可用, 如果可用将自动创建父文件夹
-     * <p>检查的标准:</p>
-     * <br>1.文件不可用或没有权限, 返回 false
-     * <br>2.文件不存在, 如果父文件夹已存在, 返回 true; 如果父文件夹不存在将自动创建, 创建成功返回 true, 失败返回 false
-     * <br>3.文件存在, 对象为文件对象返回 true, 为文件夹对象返回 false
-     *
-     * @param file 指定文件
-     * @return true 检查通过, false 为不通过
-     */
-    public static boolean checkFileAndMakeDirs(File file) {
-        if (!checkFile(file)) return false;
-        if (!file.exists()) {
-            File dir = file.getParentFile();
-            return dir != null && (dir.exists() ? dir.isDirectory() : dir.mkdirs());
-        }
-        return !file.isDirectory();
-    }
 
-    /**
-     * 检查文件夹是否可用, 如果可用将自动创建该文件夹及其父文件夹
-     * <p>检查的标准:</p>
-     * <br>1.文件不可用或没有权限, 返回 false
-     * <br>2.文件不存在, 将创建该文件夹及其父文件夹, 创建成功返回 true, 失败返回 false
-     * <br>3.文件存在, 对象为文件夹对象返回 true, 为文件对象返回 false
-     *
-     * @param file 指定文件夹
-     * @return true 检查通过, false 为不通过
-     */
-    public static boolean checkDirAndMakeDirs(File file) {
-        if (!checkFile(file))
-            return false;
-        if (file.exists()) {
-            return file.isDirectory();
-        }
-        return file.mkdirs();
-    }
 
-    /**
-     * 检查文件权限 (即外部存储的读写权限)
-     * <p>如果没有权限, 将自动发起权限申请</p>
-     *
-     * @return true 为拥有权限, false 为没有权限
-     */
-    public static boolean checkPermission() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            return ContextCompat.checkSelfPermission(k.app(), Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED
-                    || ContextCompat.checkSelfPermission(k.app(), Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED;
-        }
-        return true;
-    }
 
-    /**
-     * 检查文件权限 (即外部存储的读写权限)
-     * <p>如果没有权限, 将自动发起权限申请</p>
-     *
-     * @return true 为拥有权限, false 为没有权限
-     */
-    public static boolean checkPermissionAndRequest() {
-        boolean check = checkPermission();
-        if (!check) {
-            Activity activity = ActivitysUtil.getTopActivity().get();
-            if (activity != null) {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                    ActivityCompat.requestPermissions(activity,
-                            new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 100);
-                }
-            }
-        }
-        return check;
-    }
 
     /**
      * 获取外部储存中以 APP 包名命名的文件夹路径
@@ -157,7 +72,7 @@ public class FileUtils {
      * @return 成功创建返回 true, 否则返回 false
      */
     public static boolean makeDirs(File dir) {
-        if (!checkFile(dir)) return false;
+        if (!FileUtil2.checkFile(dir)) return false;
 
         if (!dir.exists()) {
             return dir.mkdirs();
@@ -172,7 +87,7 @@ public class FileUtils {
      * @return 成功创建返回 true, 否则返回 false
      */
     public static boolean makeParentDirs(File file) {
-        if (!checkFile(file)) return false;
+        if (!FileUtil2.checkFile(file)) return false;
 
         File dir = file.getParentFile();
         if (dir != null && !dir.exists()) {
@@ -211,7 +126,7 @@ public class FileUtils {
      * @return 文本内容, 读取失败返回 null
      */
     public static StringBuilder readFile(File file, String charsetName) {
-        if (!checkFile(file) || !file.isFile()) {
+        if (!FileUtil2.checkFile(file) || !file.isFile()) {
             return null;
         }
 
@@ -259,7 +174,7 @@ public class FileUtils {
      * @return 文本集合, 每一个元素代表一行
      */
     public static List<String> readFileAsList(File file, String charsetName) {
-        if (!checkFile(file) || !file.isFile()) {
+        if (!FileUtil2.checkFile(file) || !file.isFile()) {
             return null;
         }
 
@@ -321,7 +236,7 @@ public class FileUtils {
      * @return 是否写入成功
      */
     public static boolean writeFile(File file, String content, boolean append, boolean endWithNewLine) {
-        if (TextUtils.isEmpty(content) || !checkFileAndMakeDirs(file)) {
+        if (TextUtils.isEmpty(content) || !FileUtil2.checkFileAndMakeDirs(file)) {
             return false;
         }
 
@@ -376,7 +291,7 @@ public class FileUtils {
      * @return 是否写入成功
      */
     public static boolean writeFile(File file, List<String> contents, boolean append) {
-        if (contents == null || !checkFileAndMakeDirs(file)) {
+        if (contents == null || !FileUtil2.checkFileAndMakeDirs(file)) {
             return false;
         }
 
@@ -425,7 +340,7 @@ public class FileUtils {
      */
     @RequiresApi(api = Build.VERSION_CODES.N)
     public static boolean writeFile(File file, Consumer<BufferedWriter> consumer, boolean append) {
-        if (consumer == null || !checkFileAndMakeDirs(file)) {
+        if (consumer == null || !FileUtil2.checkFileAndMakeDirs(file)) {
             return false;
         }
 
@@ -469,7 +384,7 @@ public class FileUtils {
      * @return 是否写入成功
      */
     public static boolean writeFile(File file, InputStream is, boolean append) {
-        if (is == null || !checkFileAndMakeDirs(file)) return false;
+        if (is == null || !FileUtil2.checkFileAndMakeDirs(file)) return false;
 
         OutputStream os = null;
         try {
@@ -520,7 +435,7 @@ public class FileUtils {
      * @return 是否写入成功
      */
     public static boolean writeFile(final File file, final byte[] bytes, final boolean append) {
-        if (bytes == null || !checkFileAndMakeDirs(file)) return false;
+        if (bytes == null || !FileUtil2.checkFileAndMakeDirs(file)) return false;
 
         BufferedOutputStream bos = null;
         try {
@@ -550,7 +465,7 @@ public class FileUtils {
      * @return 是否删除成功
      */
     public static boolean deleteFile(File file) {
-        if (checkFile(file) && file.exists()) {
+        if (FileUtil2.checkFile(file) && file.exists()) {
             return file.delete();
         }
         return false;
@@ -563,7 +478,7 @@ public class FileUtils {
      * @return 是否删除成功
      */
     public static boolean deleteDir(File dir) {
-        if (!checkFile(dir) || !dir.exists() || !dir.isDirectory())
+        if (!FileUtil2.checkFile(dir) || !dir.exists() || !dir.isDirectory())
             return false;
         if (!executeDeleteDir(dir))
             return false;
@@ -653,7 +568,7 @@ public class FileUtils {
     public static boolean copyOrMoveDir(File srcDir, File destDir, boolean isMove) {
         if (srcDir == null || !srcDir.exists() || !srcDir.isDirectory())
             return false;
-        if (!checkFile(destDir) || (destDir.exists() && destDir.isFile()))
+        if (!FileUtil2.checkFile(destDir) || (destDir.exists() && destDir.isFile()))
             return false;
         // 如果目标目录在源目录中则返回false
         if (destDir.getAbsolutePath().contains(srcDir.getAbsolutePath()))

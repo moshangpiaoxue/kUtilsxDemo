@@ -47,6 +47,7 @@ public class FunctionsActivity extends BaseActivity implements TitleBarAction, L
         List<MainBean> list = new ArrayList<>();
         list.add(new MainBean("拍照", TakePhotoActivity.class));
         list.add(new MainBean("签字", SignatureViewActivity.class));
+        list.add(new MainBean("二维码", ScanActivity.class));
         return list;
     }
 

@@ -22,7 +22,7 @@ import androidx.annotation.ColorInt;
 
 
 import com.mo.libsx.utils.ResUtil;
-import com.mo.libsx.utils.dataUtil.StringUtil;
+import com.mo.libsx.utils.dataUtil.stringUtils.StringUtil;
 import com.mo.libsx.utils.task.handlers.HandlerUtil;
 import com.mo.libsx.utils.tips_utils.LogUtil;
 

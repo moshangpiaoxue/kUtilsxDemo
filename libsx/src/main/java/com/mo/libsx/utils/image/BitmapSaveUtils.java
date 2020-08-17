@@ -8,7 +8,7 @@ import android.net.Uri;
 
 
 import com.mo.libsx.k;
-import com.mo.libsx.utils.dataUtil.StringUtil;
+import com.mo.libsx.utils.dataUtil.stringUtils.StringUtil;
 import com.mo.libsx.utils.dataUtil.date.DateUtil;
 import com.mo.libsx.utils.file_utils.FileDirUtil;
 import com.mo.libsx.utils.tips_utils.LogUtil;

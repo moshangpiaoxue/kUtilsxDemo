@@ -21,7 +21,7 @@ import androidx.annotation.Nullable;
 
 import com.mo.libsx.k;
 import com.mo.libsx.utils.app_utils.PermissionUtil;
-import com.mo.libsx.utils.dataUtil.StringUtil;
+import com.mo.libsx.utils.dataUtil.stringUtils.StringUtil;
 import org.xmlpull.v1.XmlSerializer;
 import java.io.File;
 import java.io.FileOutputStream;

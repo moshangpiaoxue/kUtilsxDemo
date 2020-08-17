@@ -15,7 +15,7 @@ import androidx.core.app.NotificationManagerCompat;
 import com.mo.libsx.R;
 import com.mo.libsx.modle.broadcastreceivers.NotificationBroadcastReceiver;
 import com.mo.libsx.k;
-import com.mo.libsx.utils.dataUtil.StringUtil;
+import com.mo.libsx.utils.dataUtil.stringUtils.StringUtil;
 
 
 /**
@@ -29,7 +29,7 @@ import com.mo.libsx.utils.dataUtil.StringUtil;
  * .setTicke("1111")
  * .setTitle("标题")
  * .setContent("内容")
- * .setSmallIcon(R.mipmap.aa)
+ * .setSmallIcon(R.mipmap.TT)
  * .setReceiver(NotificationBroadcastReceiver2.class)
  * .actionNotification();
  */
@@ -217,7 +217,7 @@ public class NotificationUtil {
 //                //首次进入时显示效果
 //                .setTicker(ticke)
 //                //设置图标
-//                .setSmallIcon(smallIcon == 0 ? R.mipmap.aa : smallIcon)
+//                .setSmallIcon(smallIcon == 0 ? R.mipmap.TT : smallIcon)
 //                //设置标题
 //                .setContentTitle(title)
 //                //设置内容

@@ -20,7 +20,6 @@ import com.mo.libsx.modle.listener.click_listener.KOnItemClickListener;
 import com.mo.libsx.modle.listener.scrolling_listener.OnScrollingListener;
 import com.mo.libsx.modle.view_holder.KRecycleViewHolder;
 
-import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,7 +48,7 @@ public abstract class BaseRecycleViewAdapter<T> extends RecyclerView.Adapter<KRe
     private KOnItemClickListener mItemClickListener;
     /** 父布局 */
     private RecyclerView mRecyclerView;
-
+    private RecyclerView.OnScrollListener mScrollingListener;
     /**
      * 构造方法
      *
@@ -70,7 +69,7 @@ public abstract class BaseRecycleViewAdapter<T> extends RecyclerView.Adapter<KRe
 
     }
 
-    private RecyclerView.OnScrollListener mScrollingListener;
+
 
     @Override
     public void onAttachedToRecyclerView(@NonNull RecyclerView recyclerView) {
@@ -131,9 +130,8 @@ public abstract class BaseRecycleViewAdapter<T> extends RecyclerView.Adapter<KRe
     /**
      * 创建viewholder
      */
-    @NotNull
     @Override
-    public KRecycleViewHolder onCreateViewHolder(@NotNull final ViewGroup parent, int viewType) {
+    public KRecycleViewHolder onCreateViewHolder(final ViewGroup parent, int viewType) {
         //        if (this.parent == null) {
         //            this.parent = (RecyclerView) parent;
         //        }
@@ -148,7 +146,7 @@ public abstract class BaseRecycleViewAdapter<T> extends RecyclerView.Adapter<KRe
      * 绑定 viewholder
      */
     @Override
-    public void onBindViewHolder(@NotNull final KRecycleViewHolder holder, @SuppressLint("RecyclerView") int position) {
+    public void onBindViewHolder( final KRecycleViewHolder holder, @SuppressLint("RecyclerView") int position) {
 
         //是否展示加载动画
         if (isShow()) {
@@ -252,7 +250,7 @@ public abstract class BaseRecycleViewAdapter<T> extends RecyclerView.Adapter<KRe
      * item移除屏幕的时候清空动画
      */
     @Override
-    public void onViewDetachedFromWindow(@NotNull KRecycleViewHolder holder) {
+    public void onViewDetachedFromWindow( KRecycleViewHolder holder) {
         super.onViewDetachedFromWindow(holder);
         holder.itemView.clearAnimation();
     }

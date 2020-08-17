@@ -31,7 +31,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static com.mo.libsx.BuildConfig.DEBUG;
-import static com.mo.libsx.utils.dataUtil.StringUtil.isSpace;
+import static com.mo.libsx.utils.dataUtil.stringUtils.StringUtil.isSpace;
 
 
 /**

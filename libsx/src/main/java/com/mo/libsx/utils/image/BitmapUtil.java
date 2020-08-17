@@ -37,7 +37,7 @@ import androidx.annotation.IntRange;
 
 import com.mo.libsx.k;
 import com.mo.libsx.utils.ResUtil;
-import com.mo.libsx.utils.dataUtil.StringUtil;
+import com.mo.libsx.utils.dataUtil.stringUtils.StringUtil;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;

@@ -4,7 +4,7 @@ import android.media.MediaRecorder;
 import android.os.Handler;
 
 
-import com.mo.libsx.utils.dataUtil.StringUtil;
+import com.mo.libsx.utils.dataUtil.stringUtils.StringUtil;
 import com.mo.libsx.utils.dataUtil.date.DateUtil;
 import com.mo.libsx.utils.file_utils.FileUtil;
 import com.mo.libsx.utils.systemUtils.storageUtil.SDCardUtil;

@@ -1,11 +1,9 @@
 package com.mo.libsx.utils.beng_utils;
 
-import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.PendingIntent;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.provider.Settings;
@@ -13,7 +11,7 @@ import android.telephony.SmsManager;
 
 
 import com.mo.libsx.k;
-import com.mo.libsx.utils.dataUtil.StringUtil;
+import com.mo.libsx.utils.dataUtil.stringUtils.StringUtil;
 import com.mo.libsx.utils.tips_utils.LogUtil;
 
 import java.util.List;

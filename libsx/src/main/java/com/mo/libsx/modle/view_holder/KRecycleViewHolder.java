@@ -99,4 +99,11 @@ public class KRecycleViewHolder extends RecyclerView.ViewHolder {
         return this;
     }
 
+
+
+
+
+
+
+
 }

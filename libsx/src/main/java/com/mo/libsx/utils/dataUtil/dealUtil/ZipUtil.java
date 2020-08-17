@@ -4,6 +4,7 @@ import android.text.TextUtils;
 
 
 import com.mo.libsx.utils.file_utils.FileUtil;
+import com.mo.libsx.utils.file_utils.FileUtil2;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -337,11 +338,11 @@ public class ZipUtil {
                 File file = new File(filePath);
                 files.add(file);
                 if (entry.isDirectory()) {
-                    if (!FileUtil.checkDirAndMakeDirs(file)) {
+                    if (!FileUtil2.checkDirAndMakeDirs(file)) {
                         return null;
                     }
                 } else {
-                    if (!FileUtil.checkFileAndMakeDirs(file)) {
+                    if (!FileUtil2.checkFileAndMakeDirs(file)) {
                         return null;
                     }
                     InputStream in = null;

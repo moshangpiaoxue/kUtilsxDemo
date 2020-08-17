@@ -12,7 +12,7 @@ import android.widget.PopupWindow;
  * author：mo
  * data：2017/11/16 0016
  */
-
+@Deprecated
 public class KPopupWindow2 extends PopupWindow {
     /**
      * 环境

@@ -1,22 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.mo.kutilsx">
 
     <application
+        android:name="com.mo.libsx.base.BaseApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:name="com.mo.libsx.base.BaseApplication"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning">
 
         <activity android:name="com.mo.kutilsx.MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name="com.mo.kutilsx.activitys.widget.WidgetsActivity" />
         <activity android:name="com.mo.kutilsx.activitys.widget.text_view.TextViewsActivity" />
@@ -36,7 +34,6 @@
         <activity android:name="com.mo.kutilsx.activitys.widget.edit_view.EditsViewActivity" />
         <activity android:name="com.mo.kutilsx.activitys.widget.image_view.ImagesViewActivity" />
         <activity android:name="com.mo.kutilsx.activitys.widget.progress_bar.ProgressBarsActivity" />
-        <activity android:name=".activitys.widget.list.pull_to_refresh.PullToRefreshActivity" />
         <activity android:name="com.mo.kutilsx.activitys.widget.list.ListsActivity" />
         <activity android:name="com.mo.kutilsx.activitys.widget.list.RecycleViewsActivity" />
         <activity android:name="com.mo.kutilsx.activitys.widget.list.PullToRefreshActivity" />
@@ -45,6 +42,25 @@
         <activity android:name="com.mo.kutilsx.activitys.widget.view_switcher.ViewSwitcherActivity" />
         <activity android:name="com.mo.kutilsx.activitys.widget.viewpage.ViewPagesActivity" />
         <activity android:name="com.mo.kutilsx.activitys.widget.viewpage.KViewPageActivity" />
+        <activity android:name=".activitys.widget.popwindow.PopWindowsActivity" />
+        <activity android:name=".activitys.widget.list.RvAutoLineBreakActivity" />
+        <activity android:name=".activitys.function.ScanActivity" />
+        <activity android:name=".activitys.widget.data_picker.DataPickerActivity" />
+        <activity android:name=".activitys.widget.data_picker.DefDataPickerActivity" />
+        <activity android:name=".activitys.widget.data_picker.PickViewActivity" />
+        <activity android:name=".activitys.widget.list.RecycleViewsActivity2">
+
+        </activity>
+        <activity android:name=".activitys.widget.list.PullToRefreshActivity2" >
+
+        </activity>
+        <activity android:name=".activitys.widget.list.CityPickerActivity2" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

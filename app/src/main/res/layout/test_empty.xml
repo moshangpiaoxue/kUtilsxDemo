@@ -7,6 +7,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/green"
         android:gravity="center"
         android:text="空了撒" />
 </LinearLayout>

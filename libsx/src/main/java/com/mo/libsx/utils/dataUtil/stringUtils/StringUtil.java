@@ -1,4 +1,4 @@
-package com.mo.libsx.utils.dataUtil;
+package com.mo.libsx.utils.dataUtil.stringUtils;
 
 import android.content.Context;
 import android.content.res.AssetManager;
@@ -12,6 +12,8 @@ import android.text.style.CharacterStyle;
 import android.text.style.ForegroundColorSpan;
 
 import androidx.annotation.Nullable;
+
+import com.mo.libsx.utils.dataUtil.ObjectUtil;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
@@ -41,8 +43,6 @@ public class StringUtil {
 
     /**
      * 字符串是否为空
-     *
-     * @param str 字符串
      */
     public static boolean isEmpty(@Nullable String str) {
         return str == null || TextUtils.isEmpty(str) || str.equals("\n") || str.equals("\t") ||
@@ -51,9 +51,6 @@ public class StringUtil {
 
     /**
      * 是否是空格
-     *
-     * @param str
-     * @return
      */
     public static boolean isSpace(final String str) {
         if (str == null) {
@@ -69,10 +66,6 @@ public class StringUtil {
 
     /**
      * 两个字符串是否相同
-     *
-     * @param a 作为对比的字符串
-     * @param b 作为对比的字符串
-     * @return 是否相同
      */
     public static boolean isEquals(String a, String b) {
         return a == b || (a != null && a.equals(b));
@@ -87,22 +80,14 @@ public class StringUtil {
 
     /**
      * String后缀是不是图片类型的
-     *
-     * @param imageUrl imageUrl
      */
     public static boolean isImageSuffix(String imageUrl) {
-        return imageUrl.endsWith(".png")
-                || imageUrl.endsWith(".PNG")
-                || imageUrl.endsWith(".jpg")
-                || imageUrl.endsWith(".JPG")
-                || imageUrl.endsWith(".jpeg")
-                || imageUrl.endsWith(".JPEG");
+        return imageUrl.endsWith(".png") || imageUrl.endsWith(".PNG") || imageUrl.endsWith(".jpg") || imageUrl.endsWith(".JPG")
+                || imageUrl.endsWith(".jpeg") || imageUrl.endsWith(".JPEG");
     }
 
     /**
      * 判断后缀是不是 GIF
-     *
-     * @param imageUrl imageUrl
      */
     public static boolean isGifSuffix(String imageUrl) {
         return imageUrl.endsWith(".gif") || imageUrl.endsWith(".GIF");
@@ -110,18 +95,37 @@ public class StringUtil {
 
     /**
      * 判断字符串中是否存在中文汉字
-     *
-     * @param string 指定字符串
-     * @return 是否存在
      */
-    public static boolean isChinese(String string) {
-        boolean temp = false;
-        Pattern p = Pattern.compile("[\u4e00-\u9fa5]");
-        Matcher m = p.matcher(string);
-        if (m.find()) {
-            temp = true;
+    public static boolean isHasChinese(String string) {
+        //        boolean temp = false;
+        //        Pattern p = Pattern.compile("[\u4e00-\u9fa5]");
+        //        Matcher m = p.matcher(string);
+        //        if (m.find()) {
+        //            temp = true;
+        //        }
+        //        return temp;
+        if (string == null)
+            return false;
+        for (char c : string.toCharArray()) {
+            if (isChinese(c))
+                return true;// 有一个中文字符就返回
         }
-        return temp;
+        return false;
+    }
+
+    /**
+     * 是否全部为中文字符
+     */
+    public static boolean isChinese(char string) {
+        //        return Pattern.compile("[\u4e00-\u9fa5]").matcher(string).matches();
+        return string >= 0x4E00 && string <= 0x9FA5;// 根据字节码判断
+    }
+
+    /**
+     * 是否是英文字符
+     */
+    public static boolean isLetter(String string) {
+        return Pattern.compile("[a-zA-Z]").matcher(string).matches();
     }
 
     /**
@@ -197,34 +201,34 @@ public class StringUtil {
         //方法1：BigDecimal
         // BigDecimal.ROUND_HALF_UP表示四舍五入、BigDecimal.ROUND_HALF_DOWN也是五舍六入、
         // BigDecimal.ROUND_UP表示进位处理（就是直接加1）、BigDecimal.ROUND_DOWN表示直接去掉尾数
-//         return (new BigDecimal(dd)).setScale(in, BigDecimal.ROUND_DOWN).doubleValue()+"";
+        //         return (new BigDecimal(dd)).setScale(in, BigDecimal.ROUND_DOWN).doubleValue()+"";
 
         //方法2：DecimalFormat
-//        String pattern = "#.";
-//        for (int i = 0; i < in; i++) {
-//            pattern += "0";
-//        }
-//        return new DecimalFormat(pattern).format(dd);
+        //        String pattern = "#.";
+        //        for (int i = 0; i < in; i++) {
+        //            pattern += "0";
+        //        }
+        //        return new DecimalFormat(pattern).format(dd);
 
         //方法3：%.2f表示保留后两位，能四舍五入
         return String.format("%." + in + "f", dd);
 
     }
 
-//    /**
-//     * double转String,保留小数点后几位
-//     *
-//     * @param num     double值
-//     * @param pattern 保留几位  使用0.00不足位补0，#.##仅保留有效位
-//     * @return
-//     */
-//    public static String getString(double num, String pattern) {
-//        if (num == 0) {
-//            return "0.00";
-//        } else {
-//            return new DecimalFormat(pattern).format(num);
-//        }
-//    }
+    //    /**
+    //     * double转String,保留小数点后几位
+    //     *
+    //     * @param num     double值
+    //     * @param pattern 保留几位  使用0.00不足位补0，#.##仅保留有效位
+    //     * @return
+    //     */
+    //    public static String getString(double num, String pattern) {
+    //        if (num == 0) {
+    //            return "0.00";
+    //        } else {
+    //            return new DecimalFormat(pattern).format(num);
+    //        }
+    //    }
 
     /**
      * 半角 转 全角
@@ -812,18 +816,15 @@ public class StringUtil {
     }
 
     /**
-     * 获得第一个汉字首字母
-     *
-     * @param s 单个汉字字符串
-     * @return 拼音
+     * 获取首个字符的首个字母
      */
-    public static String getPYFirstLetter(String s) {
-        if (isEmpty(s)) {
+    public static String getFirstPy(String str) {
+        if (isEmpty(str)) {
             return "";
         }
         String first, py;
-        first = s.substring(0, 1);
-        py = oneCn2PY(first);
+        first = str.substring(0, 1);
+        py = getPy(first);
         if (py == null) {
             return null;
         }
@@ -832,12 +833,9 @@ public class StringUtil {
 
     /**
      * 单个汉字转成拼音
-     *
-     * @param s 单个汉字字符串
-     * @return 如果字符串长度是1返回的是对应的拼音，否则返回{@code null}
      */
-    public static String oneCn2PY(String s) {
-        int ascii = oneCn2ASCII(s);
+    public static String getPy(String s) {
+        int ascii = getAssciiOne(s);
         if (ascii == -1) {
             return null;
         }
@@ -854,14 +852,27 @@ public class StringUtil {
         }
         return ret;
     }
-
     /**
-     * 单个汉字转成ASCII码
-     *
-     * @param s 单个汉字字符串
-     * @return 如果字符串长度是1返回的是对应的ascii码，否则返回-1
+     * 多个汉字转成拼音
      */
-    public static int oneCn2ASCII(String s) {
+    public static String getPys(String s) {
+        String hz, py;
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < s.length(); i++) {
+            hz = s.substring(i, i + 1);
+            py = getPy(hz);
+            if (py == null) {
+                py = "?";
+            }
+            sb.append(py);
+        }
+        return sb.toString();
+    }
+    /**
+     * 获取单个字的asscii码值
+     */
+    public static int getAssciiOne(String s) {
+//        如果字符串长度是1返回的是对应的ascii码，否则返回-1 特殊字符待定
         if (s.length() != 1) {
             return -1;
         }
@@ -881,26 +892,6 @@ public class StringUtil {
             e.printStackTrace();
         }
         return ascii;
-    }
-
-    /**
-     * 中文转拼音
-     *
-     * @param s 汉字字符串
-     * @return 拼音
-     */
-    public static String cn2PY(String s) {
-        String hz, py;
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < s.length(); i++) {
-            hz = s.substring(i, i + 1);
-            py = oneCn2PY(hz);
-            if (py == null) {
-                py = "?";
-            }
-            sb.append(py);
-        }
-        return sb.toString();
     }
 
     /**
@@ -949,15 +940,15 @@ public class StringUtil {
         return uniqueId;
     }
 
-//    /**
-//     * hashMap对象转Json串
-//     *
-//     * @param map
-//     * @return
-//     */
-//    public static String hashMapToJson(HashMap map) {
-//        return new Gson().toJson(map);
-//    }
+    //    /**
+    //     * hashMap对象转Json串
+    //     *
+    //     * @param map
+    //     * @return
+    //     */
+    //    public static String hashMapToJson(HashMap map) {
+    //        return new Gson().toJson(map);
+    //    }
 
     /**
      * counter ASCII character as one, otherwise two

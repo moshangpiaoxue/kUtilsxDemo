@@ -5,7 +5,9 @@ import android.text.TextUtils;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Set;
 
 
 /**
@@ -17,12 +19,15 @@ public class ListUtil {
     private ListUtil() {
         throw new AssertionError();
     }
+
     /**
      * default join separator
      **/
     public static final String DEFAULT_JOIN_SEPARATOR = ",";
+
     /**
      * 判断集合是否为空
+     *
      * @param list 集合
      * @return 是否为空
      */
@@ -66,21 +71,25 @@ public class ListUtil {
         return list;
     }
 
+
     /**
      * 去重
-     *
-     * @param list
-     * @return
      */
-    public static <T> void deleteRepeat(List<T> list) {
-        for (int i = 0; i < list.size(); i++) {
-            for (int j = list.size() - 1; j > i; j--) {
-                if (list.get(i).equals(list.get(j))) {
-                    list.remove(j);
-                }
-            }
-        }
+    public static <T> List<T> removeRepeat(List<T> list) {
+        Set<T> set = new LinkedHashSet<T>();
+        set.addAll(list);
+        list.clear();
+        list.addAll(set);
+        return list;
+        //        for (int i = 0; i < list.size(); i++) {
+        //            for (int j = list.size() - 1; j > i; j--) {
+        //                if (list.get(i).equals(list.get(j))) {
+        //                    list.remove(j);
+        //                }
+        //            }
+        //        }
     }
+
     /**
      * 反转集合
      *
@@ -97,10 +106,11 @@ public class ListUtil {
         }
         return invertList;
     }
+
     /**
      * 将指定的集合转成 String 集合, 即将集合的元素转成或抽取成 String
      *
-     * @param list            源集合
+     * @param list   源集合
      * @param action 将元素转成 String 的可执行任务
      * @return 新的 String 集合
      */
@@ -136,6 +146,7 @@ public class ListUtil {
         }
         return builder.toString();
     }
+
     /**
      * 将集合转化成 int 数组
      *
@@ -143,7 +154,9 @@ public class ListUtil {
      * @return 转化后得到的 int 数组
      */
     public static int[] toIntArray(List<Integer> list) {
-        if (list == null) {return null;}
+        if (list == null) {
+            return null;
+        }
         int[] array = new int[list.size()];
         for (int i = 0; i < array.length; i++) {
             array[i] = list.get(i);
@@ -158,7 +171,9 @@ public class ListUtil {
      * @return 转化后得到的 String 数组
      */
     public static String[] toStringArray(List<String> list) {
-        if (list == null) {return null;}
+        if (list == null) {
+            return null;
+        }
         String[] array = new String[list.size()];
         for (int i = 0; i < array.length; i++) {
             array[i] = list.get(i);
@@ -169,8 +184,8 @@ public class ListUtil {
     /**
      * 将集合转化成数组
      *
-     * @param list  指定的集合
-     * @param <T>   泛型, 集合中的泛型或其父类
+     * @param list 指定的集合
+     * @param <T>  泛型, 集合中的泛型或其父类
      * @return 转化后得到的数组
      */
     public static <T> T[] toArray(List<? extends T> list) {
@@ -213,15 +228,20 @@ public class ListUtil {
      * @return 字符串
      */
     public static String toString(Iterator iterator) {
-        if (iterator == null) {return "null";}
-        if (!iterator.hasNext()){ return "[]";}
+        if (iterator == null) {
+            return "null";
+        }
+        if (!iterator.hasNext()) {
+            return "[]";
+        }
         StringBuilder builder = new StringBuilder();
         builder.append('[');
         for (; ; ) {
             Object element = iterator.next();
             builder.append(element);
-            if (!iterator.hasNext()){
-                return builder.append(']').toString();}
+            if (!iterator.hasNext()) {
+                return builder.append(']').toString();
+            }
             builder.append(',').append(' ');
         }
     }
@@ -260,8 +280,6 @@ public class ListUtil {
     }
 
 
-
-
     /**
      * get size of list
      * <p>
@@ -278,7 +296,6 @@ public class ListUtil {
     public static <V> int getSize(List<V> sourceList) {
         return sourceList == null ? 0 : sourceList.size();
     }
-
 
 
     /**
@@ -462,6 +479,7 @@ public class ListUtil {
 
 
     static final char hexDigits[] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+
     public interface Action<R, P> {
 
         R call(P p);

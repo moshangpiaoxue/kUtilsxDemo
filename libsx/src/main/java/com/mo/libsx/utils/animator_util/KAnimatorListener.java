@@ -1,4 +1,4 @@
-package com.mo.libsx.modle.listener;
+package com.mo.libsx.utils.animator_util;
 
 import android.view.animation.Animation;
 
